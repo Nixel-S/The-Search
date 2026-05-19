@@ -1,0 +1,369 @@
+[gd_scene load_steps=12 format=3 uid="uid://s1oxofu8ycy0"]
+
+[ext_resource type="Script" uid="uid://bhj1y871mqfjq" path="res://Scripts/InventoryScripts/BeltUI.gd" id="1_80vs8"]
+[ext_resource type="ButtonGroup" uid="uid://bgbi7b4xmv6ge" path="res://Assets/GrupoBotonesBelt.tres" id="2_am4hl"]
+[ext_resource type="Texture2D" uid="uid://8c3vboyqio4u" path="res://Assets/UI/Slot1_Belt_Normal.png" id="2_nnp52"]
+[ext_resource type="Texture2D" uid="uid://frk1cb15ui7y" path="res://Assets/UI/Slot1_Belt_Pressed.png" id="3_du1tr"]
+[ext_resource type="Texture2D" uid="uid://c4kpkhif6xfob" path="res://Assets/UI/Slot2_Belt_Normal.png" id="4_0wjsq"]
+[ext_resource type="Texture2D" uid="uid://cgys1wgicj1f8" path="res://Assets/UI/Slot2_Belt_Pressed.png" id="6_am4hl"]
+[ext_resource type="LabelSettings" uid="uid://uw4py8yayr2p" path="res://Assets/Font_Inventory.tres" id="9_kuhnk"]
+
+[sub_resource type="Animation" id="Animation_0wjsq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotsContainer/Slot1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 3.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlotsContainer/Slot2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 3.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlotsContainer/Slot3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 3.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlotsContainer/Slot4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 3.2)]
+}
+
+[sub_resource type="Animation" id="Animation_am4hl"]
+resource_name = "close_belt"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotsContainer/Slot1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.2, 3.2), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlotsContainer/Slot2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.2, 3.2), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlotsContainer/Slot3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.2, 3.2), Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlotsContainer/Slot4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.2, 3.2), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_du1tr"]
+resource_name = "open_belt"
+length = 0.084
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotsContainer/Slot1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3.2, 3.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlotsContainer/Slot2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3.2, 3.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlotsContainer/Slot3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3.2, 3.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlotsContainer/Slot4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3.2, 3.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnp52"]
+_data = {
+&"RESET": SubResource("Animation_0wjsq"),
+&"close_belt": SubResource("Animation_am4hl"),
+&"open_belt": SubResource("Animation_du1tr")
+}
+
+[node name="Belt" type="Control" node_paths=PackedStringArray("animacion", "slot_label", "slot1_node", "slot2_node", "slot3_node", "slot4_node", "slot1_display", "slot2_display", "slot3_display", "slot4_display", "slot1_amount", "slot2_amount", "slot3_amount", "slot4_amount")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_80vs8")
+animacion = NodePath("SlotsContainer/AnimationPlayer")
+slot_label = NodePath("SlotsContainer/Label")
+slot1_node = NodePath("SlotsContainer/Slot1")
+slot2_node = NodePath("SlotsContainer/Slot2")
+slot3_node = NodePath("SlotsContainer/Slot3")
+slot4_node = NodePath("SlotsContainer/Slot4")
+slot1_display = NodePath("SlotsContainer/Slot1/Item")
+slot2_display = NodePath("SlotsContainer/Slot2/Item")
+slot3_display = NodePath("SlotsContainer/Slot3/Item")
+slot4_display = NodePath("SlotsContainer/Slot4/Item")
+slot1_amount = NodePath("SlotsContainer/Slot1/Label")
+slot2_amount = NodePath("SlotsContainer/Slot2/Label")
+slot3_amount = NodePath("SlotsContainer/Slot3/Label")
+slot4_amount = NodePath("SlotsContainer/Slot4/Label")
+
+[node name="SlotsContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 535.0
+offset_top = 170.0
+offset_right = 575.0
+offset_bottom = 210.0
+
+[node name="Slot1" type="TextureButton" parent="SlotsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.2
+anchor_top = 1.6
+anchor_right = 3.2
+anchor_bottom = 1.6
+offset_left = -128.0
+offset_top = -64.0
+offset_right = -48.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.2, 3.2)
+pivot_offset = Vector2(40, 20)
+toggle_mode = true
+button_group = ExtResource("2_am4hl")
+texture_normal = ExtResource("2_nnp52")
+texture_pressed = ExtResource("3_du1tr")
+texture_hover = ExtResource("3_du1tr")
+
+[node name="Item" type="TextureRect" parent="SlotsContainer/Slot1"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 33.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SlotsContainer/Slot1"]
+layout_mode = 0
+offset_left = 53.5625
+offset_top = 22.813
+offset_right = 1218.56
+offset_bottom = 1577.81
+scale = Vector2(0.01, 0.01)
+text = "20"
+label_settings = ExtResource("9_kuhnk")
+
+[node name="Slot2" type="TextureButton" parent="SlotsContainer"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 112.0
+offset_right = 191.0
+offset_bottom = 192.0
+scale = Vector2(3.2, 3.2)
+pivot_offset = Vector2(20, 40)
+toggle_mode = true
+button_group = ExtResource("2_am4hl")
+texture_normal = ExtResource("4_0wjsq")
+texture_pressed = ExtResource("6_am4hl")
+texture_hover = ExtResource("6_am4hl")
+
+[node name="Item" type="TextureRect" parent="SlotsContainer/Slot2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 34.0
+offset_bottom = 60.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SlotsContainer/Slot2"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 55.0
+offset_right = 1180.0
+offset_bottom = 1610.0
+scale = Vector2(0.01, 0.01)
+text = "20"
+label_settings = ExtResource("9_kuhnk")
+
+[node name="Slot3" type="TextureButton" parent="SlotsContainer"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 263.775
+offset_right = 79.0
+offset_bottom = 303.775
+scale = Vector2(3.2, 3.2)
+pivot_offset = Vector2(40, 20)
+toggle_mode = true
+button_group = ExtResource("2_am4hl")
+texture_normal = ExtResource("2_nnp52")
+texture_pressed = ExtResource("3_du1tr")
+texture_hover = ExtResource("3_du1tr")
+flip_v = true
+
+[node name="Item" type="TextureRect" parent="SlotsContainer/Slot3"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 57.0
+offset_bottom = 33.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SlotsContainer/Slot3"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 14.6875
+offset_right = 1223.0
+offset_bottom = 1569.69
+scale = Vector2(0.01, 0.01)
+text = "20"
+label_settings = ExtResource("9_kuhnk")
+
+[node name="Slot4" type="TextureButton" parent="SlotsContainer"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = 111.0
+offset_right = -72.0
+offset_bottom = 191.0
+scale = Vector2(3.2, 3.2)
+pivot_offset = Vector2(20, 40)
+toggle_mode = true
+button_group = ExtResource("2_am4hl")
+texture_normal = ExtResource("4_0wjsq")
+texture_pressed = ExtResource("6_am4hl")
+texture_hover = ExtResource("6_am4hl")
+flip_h = true
+
+[node name="Item" type="TextureRect" parent="SlotsContainer/Slot4"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 23.0
+offset_right = 34.0
+offset_bottom = 60.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SlotsContainer/Slot4"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 55.0
+offset_right = 1180.0
+offset_bottom = 1610.0
+scale = Vector2(0.01, 0.01)
+text = "20"
+label_settings = ExtResource("9_kuhnk")
+
+[node name="Label" type="Label" parent="SlotsContainer"]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 129.0
+offset_right = 6873.0
+offset_bottom = 3489.0
+scale = Vector2(0.025, 0.025)
+label_settings = ExtResource("9_kuhnk")
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotsContainer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_nnp52")
+}
+
+[connection signal="mouse_entered" from="SlotsContainer/Slot1" to="." method="_on_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="SlotsContainer/Slot1" to="." method="_on_slot_1_mouse_exited"]
+[connection signal="pressed" from="SlotsContainer/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="mouse_entered" from="SlotsContainer/Slot2" to="." method="_on_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="SlotsContainer/Slot2" to="." method="_on_slot_2_mouse_exited"]
+[connection signal="pressed" from="SlotsContainer/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="mouse_entered" from="SlotsContainer/Slot3" to="." method="_on_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="SlotsContainer/Slot3" to="." method="_on_slot_3_mouse_exited"]
+[connection signal="pressed" from="SlotsContainer/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="mouse_entered" from="SlotsContainer/Slot4" to="." method="_on_slot_4_mouse_entered"]
+[connection signal="mouse_exited" from="SlotsContainer/Slot4" to="." method="_on_slot_4_mouse_exited"]
+[connection signal="pressed" from="SlotsContainer/Slot4" to="." method="_on_slot_4_pressed"]

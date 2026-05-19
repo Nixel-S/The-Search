@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://m3imjdgcjtsf"]
+
+[ext_resource type="SpriteFrames" uid="uid://bu2xeufob7b71" path="res://Assets/SpritesFrames_Charaters(Blocked).tres" id="1_83e7o"]
+[ext_resource type="Script" uid="uid://cykalaa3s8s6o" path="res://Scripts/PlayerScripts/Player.gd" id="1_wwpud"]
+[ext_resource type="Texture2D" uid="uid://df2nq5xg0oee5" path="res://Assets/Characters/Sombra_Player.png" id="3_c1rio"]
+[ext_resource type="Texture2D" uid="uid://b2m8q2e8hm0gt" path="res://Assets/Light2.png" id="4_hhy33"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhy33"]
+radius = 6.53
+height = 13.06
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhy33"]
+radius = 24.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_wwpud")
+
+[node name="PlayerColision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_hhy33")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="PlayerColision2" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hhy33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 12)
+texture = ExtResource("3_c1rio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_83e7o")
+animation = &"idle_s"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 3)
+energy = 0.2
+texture = ExtResource("4_hhy33")
+texture_scale = 2.5
