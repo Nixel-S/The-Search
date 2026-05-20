@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://drdh27c483e40"]
+[gd_scene load_steps=16 format=4 uid="uid://drdh27c483e40"]
 
 [ext_resource type="Script" uid="uid://bs2vlpytcomds" path="res://Scripts/MainScript.gd" id="1_etweh"]
 [ext_resource type="TileSet" uid="uid://b44ea2t4p2y7" path="res://Tiles/TileSet1.tres" id="2_jaav8"]
@@ -10,13 +10,8 @@
 [ext_resource type="Script" uid="uid://bahvumni3kf2l" path="res://Scripts/WorldScripts/ItemTester.gd" id="6_jaav8"]
 [ext_resource type="PackedScene" uid="uid://s1oxofu8ycy0" path="res://Escenas/Belt.tscn" id="6_mdk62"]
 [ext_resource type="PackedScene" uid="uid://cvejbvebh0b04" path="res://Escenas/NeedsUI.tscn" id="7_etweh"]
-[ext_resource type="FontFile" uid="uid://l6dy6qeiengn" path="res://Assets/Jersey10-Regular.ttf" id="8_sbnke"]
 [ext_resource type="Script" uid="uid://bucqk7p88hs7o" path="res://Escenas/DayAndNightCycle.gd" id="9_dawtg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dawtg"]
-font = ExtResource("8_sbnke")
-font_size = 500
-font_color = Color(1, 0, 0.184314, 1)
+[ext_resource type="PackedScene" uid="uid://oqdy2d4x4s10" path="res://Escenas/HotBar.tscn" id="11_jaav8"]
 
 [sub_resource type="Animation" id="Animation_uqrhm"]
 length = 0.001
@@ -96,7 +91,88 @@ offset_bottom = -15.0
 script = ExtResource("6_jaav8")
 
 [node name="WorldItem" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
-position = Vector2(130, 67)
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem2" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem3" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem4" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem5" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem6" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem7" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem8" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem9" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem10" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem11" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem12" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem13" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "raw_meat"
+
+[node name="WorldItem14" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem15" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "antiseptic"
+
+[node name="WorldItem16" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
+item_name = "axe"
+
+[node name="WorldItem17" parent="ItemsContainer" instance=ExtResource("6_a5oj8")]
+position = Vector2(156, 61)
+scale = Vector2(0.32, 0.32)
 item_name = "axe"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -106,24 +182,17 @@ visible = false
 z_index = 4096
 offset_left = 15.035
 offset_right = 15.035
-world_item_scene = ExtResource("6_a5oj8")
 
-[node name="Belt" parent="CanvasLayer" node_paths=PackedStringArray("warning_label") instance=ExtResource("6_mdk62")]
+[node name="Belt" parent="CanvasLayer" instance=ExtResource("6_mdk62")]
 visible = false
-warning_label = NodePath("../WarningLabel")
 
 [node name="Needs" parent="CanvasLayer" instance=ExtResource("7_etweh")]
 
-[node name="WarningLabel" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 438.0
-offset_top = 519.0
-offset_right = 4564.0
-offset_bottom = 1055.0
-scale = Vector2(0.07, 0.07)
-text = "¡ Slot already Occupied !"
-label_settings = SubResource("LabelSettings_dawtg")
-horizontal_alignment = 1
+[node name="HotBar" parent="CanvasLayer" instance=ExtResource("11_jaav8")]
+offset_left = 13.0
+offset_top = 320.0
+offset_right = -27.0
+offset_bottom = 280.0
 
 [node name="DayAndNight" type="CanvasModulate" parent="."]
 script = ExtResource("9_dawtg")

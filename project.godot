@@ -22,6 +22,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 InventoryManager="*res://Scripts/InventoryScripts/InventoryManager.gd"
+ItemAttributes="*res://Scripts/WorldScripts/ItemAttributes.gd"
+ItemUsage="*res://Scripts/WorldScripts/ItemUsage.gd"
 
 [global_group]
 

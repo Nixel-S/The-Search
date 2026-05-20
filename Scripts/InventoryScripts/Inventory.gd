@@ -1,7 +1,5 @@
 extends Control
-
 signal equip_requested(item_name, inv_slot)
-
 @export var infomenu: Control
 @export var equip: TextureRect
 @export var animacion_inv: AnimationPlayer
@@ -9,20 +7,22 @@ signal equip_requested(item_name, inv_slot)
 @export var item_name_label: Label
 @export var item_description_label: Label
 @export var world_item_scene: PackedScene
-
+@export var warning_label: Label
 var inventory_open := false
 var selected_slot := -1
-
-
 func _ready() -> void:
 	visible = false
 	inventory_open = false
+	add_to_group("inventory")
+	if warning_label == null:
+		print("ERROR: warning_label no está asignado en el Inspector")
+	else:
+		print("OK: warning_label asignado correctamente")
 	InventoryManager.item_added.connect(actualizar_slots)
 	for i in range(16):
 		var slot = get_node("SlotsContainer/" + str(i + 1))
 		slot.slot_index = i
 		slot.pressed.connect(_on_slot_clicked.bind(i))
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("equip") and inventory_open:
 		if selected_slot != -1 and equip.visible:
@@ -34,7 +34,6 @@ func _process(_delta: float) -> void:
 				visible = false
 				infomenu.visible = false
 				selected_slot = -1
-
 	if Input.is_action_just_pressed("drop") and inventory_open:
 		if selected_slot != -1:
 			var slot_data = InventoryManager.slots[selected_slot]
@@ -44,13 +43,13 @@ func _process(_delta: float) -> void:
 				if player:
 					var dropped = world_item_scene.instantiate()
 					dropped.item_name = item_name
-					dropped.global_position = player.global_position
+					dropped.global_position = player.global_position + Vector2(randf_range(-20, 20), randf_range(-20, 20))
+					dropped.scale = Vector2(0.35, 0.35)
 					get_tree().current_scene.add_child(dropped)
 				InventoryManager.remove_item_from_slot(selected_slot)
 				infomenu.visible = false
 				selected_slot = -1
 				actualizar_slots()
-
 	if Input.is_action_just_pressed("inventory"):
 		inventory_open = !inventory_open
 		if inventory_open:
@@ -67,7 +66,6 @@ func _process(_delta: float) -> void:
 			await animacion_inv.animation_finished
 			if not inventory_open:
 				visible = false
-
 func actualizar_slots() -> void:
 	for i in range(16):
 		var slot = get_node("SlotsContainer/" + str(i + 1))
@@ -86,8 +84,6 @@ func actualizar_slots() -> void:
 		else:
 			item_display.visible = false
 			amount_label.visible = false
-
-
 func _on_slot_clicked(slot_index: int) -> void:
 	selected_slot = slot_index
 	var slot_data = InventoryManager.slots[slot_index]
@@ -101,7 +97,6 @@ func _on_slot_clicked(slot_index: int) -> void:
 	item_name_label.text = info["name"]
 	item_description_label.text = info["description"]
 	item_display_preview.texture = InventoryManager.get_inventory_texture(item_name)
-
 func reopen_inventory() -> void:
 	inventory_open = true
 	animacion_inv.stop()
@@ -109,3 +104,16 @@ func reopen_inventory() -> void:
 	visible = true
 	animacion_inv.play("open_inventory")
 	actualizar_slots()
+func show_warning(text: String) -> void:
+	print("show_warning llamado con: ", text)
+	if warning_label == null:
+		print("ERROR: warning_label es null en show_warning")
+		return
+	print("Mostrando warning: ", text)
+	warning_label.text = text
+	warning_label.modulate.a = 1.0
+	warning_label.visible = true
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_property(warning_label, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(func(): warning_label.visible = false)

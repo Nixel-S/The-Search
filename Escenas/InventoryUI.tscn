@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://du13lydtilg4c"]
+[gd_scene load_steps=16 format=3 uid="uid://du13lydtilg4c"]
 
 [ext_resource type="Texture2D" uid="uid://clrqad8s7lmt7" path="res://Assets/UI/Inventory.png" id="1_25ykf"]
 [ext_resource type="Script" uid="uid://biy62y3cmb3hi" path="res://Scripts/InventoryScripts/Inventory.gd" id="1_dwwuv"]
 [ext_resource type="Texture2D" uid="uid://xowqoflaxwn5" path="res://Assets/UI/Inventory_Slot_Normal.png" id="2_dwwuv"]
+[ext_resource type="PackedScene" uid="uid://bu83hig0tngl6" path="res://Escenas/WorldItem.tscn" id="2_ox7ym"]
 [ext_resource type="Texture2D" uid="uid://dstpugftwxcfi" path="res://Assets/UI/Inventory_Slot_Hover.png" id="3_vjsnp"]
 [ext_resource type="Texture2D" uid="uid://bcg5a5cdqinb3" path="res://Assets/UI/Item_Slot_Info.png" id="4_vlq62"]
 [ext_resource type="Script" uid="uid://bscmostumgptl" path="res://Scripts/InventoryScripts/InventorySlots.gd" id="5_gcmpb"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://unmokyi270vm" path="res://Assets/UI/E-Boton.png" id="6_oxnxi"]
 [ext_resource type="Texture2D" uid="uid://bhg4x8te0xjbx" path="res://Assets/UI/G-Boton.png" id="8_n0bqq"]
 [ext_resource type="LabelSettings" uid="uid://uw4py8yayr2p" path="res://Assets/Font_Inventory.tres" id="8_ycl63"]
+[ext_resource type="LabelSettings" uid="uid://rtdryvn3y80l" path="res://Escenas/LabelWarning.tres" id="12_6voq2"]
 
 [sub_resource type="Animation" id="Animation_n0bqq"]
 resource_name = "close_inventory"
@@ -97,7 +99,7 @@ _data = {
 &"open_inventory": SubResource("Animation_x8blj")
 }
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("infomenu", "equip", "animacion_inv", "item_display_preview", "item_name_label", "item_description_label")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("infomenu", "equip", "animacion_inv", "item_display_preview", "item_name_label", "item_description_label", "warning_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,6 +113,8 @@ animacion_inv = NodePath("AnimationInv")
 item_display_preview = NodePath("ItemMenu/ItemSlotInfo/TextureRect")
 item_name_label = NodePath("ItemMenu/ItemSlotInfo/Name")
 item_description_label = NodePath("ItemMenu/ItemSlotInfo/Description")
+world_item_scene = ExtResource("2_ox7ym")
+warning_label = NodePath("CanvasLayer/WarningLabel")
 
 [node name="Container_Texture" type="Control" parent="."]
 anchors_preset = 0
@@ -710,3 +714,16 @@ layer = 10
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WarningLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 504.0
+offset_top = 541.0
+offset_right = 2646.0
+offset_bottom = 1077.0
+scale = Vector2(0.08, 0.08)
+text = "PENE ERECTO"
+label_settings = ExtResource("12_6voq2")
+horizontal_alignment = 1

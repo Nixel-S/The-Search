@@ -1,13 +1,5 @@
 extends Node
-
 signal item_added
-
-# =========================
-# TEXTURAS
-# =========================
-# =========================
-# INVENTORY TEXTURES
-# =========================
 var inventory_textures = {
 	"axe": preload("res://Assets/ItemsInventory/Axe_Item.png"),
 	"mini_log": preload("res://Assets/ItemsInventory/MiniLog_Item.png"),
@@ -35,10 +27,6 @@ var inventory_textures = {
 	"torn_note": null,
 	"old_photo": null,
 }
-
-# =========================
-# WORLD TEXTURES
-# =========================
 var world_textures = {
 	"axe": preload("res://Assets/ItemsInventory/ItemsGround/Axe_item.png"),
 	"mini_log": preload("res://Assets/ItemsInventory/ItemsGround/MiniLog_item.png"),
@@ -66,10 +54,6 @@ var world_textures = {
 	"torn_note": null,
 	"old_photo": null,
 }
-
-# =========================
-# INFO ITEMS
-# =========================
 var item_info = {
 	"axe": {"name": "Axe", "description": "A heavy axe used for chopping\ntrees and basic defense.\nDamage = 10"},
 	"mini_log": {"name": "Log", "description": "A thick piece of wood.\nUseful for building fires."},
@@ -77,7 +61,7 @@ var item_info = {
 	"stone": {"name": "Stone", "description": "A common rock.\nUseful for crafting basic tools."},
 	"sharp_stone": {"name": "Sharp Stone", "description": "A jagged rock with a cutting edge.\nDamage = 4"},
 	"rope": {"name": "Rope", "description": "A length of old rope.\nEssential for crafting and\nsecuring things."},
-	"torn_cloth": {"name": "Torn Cloth", "description": "A piece of ragged fabric.\nCan be used for bandages \ndddor insulation."},
+	"torn_cloth": {"name": "Torn Cloth", "description": "A piece of ragged fabric.\nCan be used for bandages \nor insulation."},
 	"rusted_metal": {"name": "Rusted Metal", "description": "A corroded metal scrap.\nStill useful for crafting."},
 	"broken_glass": {"name": "Broken Glass", "description": "A sharp shard of glass.\nDangerous but useful as a cutting tool."},
 	"raw_meat": {"name": "Raw Meat", "description": "Uncooked animal meat.\nCook it before eating.\n+10 Hunger (raw)"},
@@ -98,10 +82,6 @@ var item_info = {
 	"torn_note": {"name": "Torn Note", "description": "A fragment of a handwritten note.\nThe rest is missing."},
 	"old_photo": {"name": "Old Photo", "description": "A faded photograph.\nTwo people smiling. Who are they?"},
 }
-
-# =========================
-# STACKS
-# =========================
 var item_max_stack = {
 	"axe": 1,
 	"stick": 20,
@@ -120,7 +100,7 @@ var item_max_stack = {
 	"berries": 20,
 	"mushroom": 20,
 	"canned_food": 15,
-	"empty_bottle" : 15,
+	"empty_bottle": 15,
 	"dirty_water": 10,
 	"clean_water": 10,
 	"medicinal_herbs": 20,
@@ -130,10 +110,6 @@ var item_max_stack = {
 	"torn_note": 1,
 	"old_photo": 1,
 }
-
-# =========================
-# EQUIPABLES
-# =========================
 var equippable_items = [
 	"axe",
 	"raw_meat",
@@ -149,24 +125,13 @@ var equippable_items = [
 	"knife",
 	"torn_map"
 ]
-
-# =========================
-# INVENTORY
-# =========================
 const MAX_SLOTS := 16
 var slots = []
-
 func _ready() -> void:
-
 	for i in range(MAX_SLOTS):
 		slots.append(null)
-
-# =========================
-# ADD ITEM
-# =========================
 func add_item(nombre: String) -> bool:
 	var max_stack = item_max_stack.get(nombre, 1)
-	# STACK
 	for i in range(MAX_SLOTS):
 		if slots[i] != null:
 			if slots[i]["name"] == nombre:
@@ -174,7 +139,6 @@ func add_item(nombre: String) -> bool:
 					slots[i]["amount"] += 1
 					item_added.emit()
 					return true
-	# EMPTY SLOT
 	for i in range(MAX_SLOTS):
 		if slots[i] == null:
 			slots[i] = {
@@ -185,30 +149,22 @@ func add_item(nombre: String) -> bool:
 			return true
 	print("Inventory full")
 	return false
-# =========================
-# SWAP SLOTS
-# =========================
 func swap_slots(from_slot: int, to_slot: int) -> void:
 	var temp = slots[from_slot]
 	slots[from_slot] = slots[to_slot]
 	slots[to_slot] = temp
 	item_added.emit()
-	
 func get_inventory_texture(nombre: String) -> Texture2D:
 	return inventory_textures.get(nombre, null)
-	
 func get_world_texture(nombre: String) -> Texture2D:
 	return world_textures.get(nombre, null)
-
 func get_item_info(nombre: String) -> Dictionary:
 	return item_info.get(nombre, {
 		"name": nombre,
 		"description": "No description available."
 	})
-
 func is_equippable(nombre: String) -> bool:
 	return nombre in equippable_items
-
 func remove_item_from_slot(slot_index: int) -> void:
 	if slot_index < 0:
 		return

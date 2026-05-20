@@ -19,7 +19,7 @@ func _get_drag_data(_at_position: Vector2):
 	if slot_data == null:
 		return null
 	if dragged_item:
-		dragged_item.texture = InventoryManager.get_texture(slot_data["name"])
+		dragged_item.texture = InventoryManager.get_inventory_texture(slot_data["name"])
 		dragged_item.visible = true
 	return slot_index
 
