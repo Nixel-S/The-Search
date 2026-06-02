@@ -45,6 +45,7 @@ func _ready() -> void:
 	if slot2_amount: slot2_amount.visible = false
 	if slot3_amount: slot3_amount.visible = false
 	if slot4_amount: slot4_amount.visible = false
+	add_to_group("belt")
 func on_equip_requested(item_name: String, inv_slot: int) -> void:
 	item_to_equip = item_name
 	inventory_slot_origin = inv_slot
@@ -101,6 +102,9 @@ func _on_slot_pressed(slot_index: int) -> void:
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
 			ItemUsage.use_item(player, belt_slots[slot_index]["name"])
+		var hotbar = get_tree().get_first_node_in_group("hotbar")
+		if hotbar:
+			hotbar.update_equipped_item(belt_slots[slot_index]["name"], belt_slots[slot_index]["amount"])
 		equip_done.emit()
 func actualizar_belt() -> void:
 	var displays = [null, slot1_display, slot2_display, slot3_display, slot4_display]
@@ -133,7 +137,10 @@ func show_warning(text: String) -> void:
 	tween.tween_property(warning_label, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(func(): warning_label.visible = false)
 func _on_slot_1_mouse_entered() -> void:
-	slot_label.text = belt_slots[1]["name"] if belt_slots[1] != null else "Empty"
+	if belt_slots[1] != null:
+		slot_label.text = belt_slots[1]["name"]
+	else:
+		slot_label.text = "Empty"
 	var tween = create_tween()
 	tween.tween_property(slot1_node, "position:y", slot1_base.y - 5, 0.1)
 func _on_slot_1_mouse_exited() -> void:
@@ -141,7 +148,10 @@ func _on_slot_1_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(slot1_node, "position:y", slot1_base.y, 0.1)
 func _on_slot_2_mouse_entered() -> void:
-	slot_label.text = belt_slots[2]["name"] if belt_slots[2] != null else "Empty"
+	if belt_slots[2] != null:
+		slot_label.text = belt_slots[2]["name"]
+	else:
+		slot_label.text = "Empty"
 	var tween = create_tween()
 	tween.tween_property(slot2_node, "position:x", slot2_base.x + 5, 0.1)
 func _on_slot_2_mouse_exited() -> void:
@@ -149,7 +159,10 @@ func _on_slot_2_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(slot2_node, "position:x", slot2_base.x, 0.1)
 func _on_slot_3_mouse_entered() -> void:
-	slot_label.text = belt_slots[3]["name"] if belt_slots[3] != null else "Empty"
+	if belt_slots[3] != null:
+		slot_label.text = belt_slots[3]["name"]
+	else:
+		slot_label.text = "Empty"
 	var tween = create_tween()
 	tween.tween_property(slot3_node, "position:y", slot3_base.y + 5, 0.1)
 func _on_slot_3_mouse_exited() -> void:
@@ -157,7 +170,10 @@ func _on_slot_3_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(slot3_node, "position:y", slot3_base.y, 0.1)
 func _on_slot_4_mouse_entered() -> void:
-	slot_label.text = belt_slots[4]["name"] if belt_slots[4] != null else "Empty"
+	if belt_slots[4] != null:
+		slot_label.text = belt_slots[4]["name"]
+	else:
+		slot_label.text = "Empty"
 	var tween = create_tween()
 	tween.tween_property(slot4_node, "position:x", slot4_base.x - 5, 0.1)
 func _on_slot_4_mouse_exited() -> void:
@@ -172,3 +188,8 @@ func _on_slot_3_pressed() -> void:
 	_on_slot_pressed(3)
 func _on_slot_4_pressed() -> void:
 	_on_slot_pressed(4)
+func get_equipped_item() -> String:
+	for slot in belt_slots.values():
+		if slot != null:
+			return slot["name"]
+	return ""

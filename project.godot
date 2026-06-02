@@ -11,12 +11,13 @@ config_version=5
 [animation]
 
 warnings/check_invalid_track_paths=false
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="The Search"
 run/main_scene="uid://drdh27c483e40"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,9 +26,15 @@ InventoryManager="*res://Scripts/InventoryScripts/InventoryManager.gd"
 ItemAttributes="*res://Scripts/WorldScripts/ItemAttributes.gd"
 ItemUsage="*res://Scripts/WorldScripts/ItemUsage.gd"
 
+[dotnet]
+
+project/assembly_name="The Search"
+
 [global_group]
 
 player=""
+hotbar=""
+belt=""
 
 [input]
 

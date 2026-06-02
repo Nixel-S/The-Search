@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bdmvfhse28vwi"]
+[gd_resource type="TileSet" format=3 uid="uid://bdmvfhse28vwi"]
 
 [ext_resource type="Texture2D" uid="uid://b1yc7qjwdrb6r" path="res://Tiles/Tile_Set.png" id="1_i5iku"]
 
@@ -94,6 +94,76 @@ texture_region_size = Vector2i(32, 32)
 6:0/0 = 0
 6:0/0/texture_origin = Vector2i(0, -8)
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 24, 16, 17, 0, 10, -16, 17)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(0, -8)
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(0, -8)
+7:1/0 = 0
+7:1/0/texture_origin = Vector2i(0, -8)
+0:4/0 = 0
+0:4/0/texture_origin = Vector2i(0, -8)
+1:4/0 = 0
+1:4/0/texture_origin = Vector2i(0, -8)
+2:4/0 = 0
+2:4/0/texture_origin = Vector2i(0, -8)
+3:4/0 = 0
+3:4/0/texture_origin = Vector2i(0, -8)
+4:4/0 = 0
+4:4/0/texture_origin = Vector2i(0, -8)
+5:4/0 = 0
+5:4/0/texture_origin = Vector2i(0, -8)
+6:4/0 = 0
+6:4/0/texture_origin = Vector2i(0, -8)
+7:4/0 = 0
+7:4/0/texture_origin = Vector2i(0, -8)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, -8)
+1:5/0 = 0
+1:5/0/texture_origin = Vector2i(0, -8)
+2:5/0 = 0
+2:5/0/texture_origin = Vector2i(0, -8)
+3:5/0 = 0
+3:5/0/texture_origin = Vector2i(0, -8)
+4:5/0 = 0
+4:5/0/texture_origin = Vector2i(0, -8)
+5:5/0 = 0
+5:5/0/texture_origin = Vector2i(0, -8)
+6:5/0 = 0
+6:5/0/texture_origin = Vector2i(0, -8)
+7:5/0 = 0
+7:5/0/texture_origin = Vector2i(0, -8)
+0:6/0 = 0
+0:6/0/texture_origin = Vector2i(0, -8)
+1:6/0 = 0
+1:6/0/texture_origin = Vector2i(0, -8)
+2:6/0 = 0
+2:6/0/texture_origin = Vector2i(0, -8)
+3:6/0 = 0
+3:6/0/texture_origin = Vector2i(0, -8)
+4:6/0 = 0
+4:6/0/texture_origin = Vector2i(0, -8)
+5:6/0 = 0
+5:6/0/texture_origin = Vector2i(0, -8)
+6:6/0 = 0
+6:6/0/texture_origin = Vector2i(0, -8)
+7:6/0 = 0
+7:6/0/texture_origin = Vector2i(0, -8)
+0:7/0 = 0
+0:7/0/texture_origin = Vector2i(0, -8)
+1:7/0 = 0
+1:7/0/texture_origin = Vector2i(0, -8)
+2:7/0 = 0
+2:7/0/texture_origin = Vector2i(0, -8)
+3:7/0 = 0
+3:7/0/texture_origin = Vector2i(0, -8)
+4:7/0 = 0
+4:7/0/texture_origin = Vector2i(0, -8)
+5:7/0 = 0
+5:7/0/texture_origin = Vector2i(0, -8)
+6:7/0 = 0
+6:7/0/texture_origin = Vector2i(0, -8)
+7:7/0 = 0
+7:7/0/texture_origin = Vector2i(0, -8)
 
 [resource]
 tile_shape = 1

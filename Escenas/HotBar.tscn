@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xowqoflaxwn5" path="res://Assets/UI/Inventory_Slot_Normal.png" id="1_plmll"]
 [ext_resource type="LabelSettings" uid="uid://uw4py8yayr2p" path="res://Assets/Font_Inventory.tres" id="2_bs3di"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("item_texture", "amount_label")]
+[node name="Control" type="Control" node_paths=PackedStringArray("item_texture", "amount_label") groups=["hotbar"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,3 +44,4 @@ offset_bottom = 1093.0
 scale = Vector2(0.02, 0.02)
 text = "90"
 label_settings = ExtResource("2_bs3di")
+horizontal_alignment = 2

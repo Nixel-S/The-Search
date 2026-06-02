@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://chj3lhov68v8b"]
+
+[ext_resource type="Script" uid="uid://cvu2kfe657wxr" path="res://Scripts/WorldScripts/Trees.gd" id="1_wmb4y"]
+[ext_resource type="Texture2D" uid="uid://caojf0y40g123" path="res://Tiles/Rock_1_Sombra.png" id="2_wmb4y"]
+[ext_resource type="Texture2D" uid="uid://c4pmubb4fpt5n" path="res://Tiles/Rock_1.png" id="3_nrxfd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0su4"]
+radius = 4.0
+height = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ielp4"]
+radius = 65.0077
+
+[node name="Arboles" type="StaticBody2D" node_paths=PackedStringArray("sprite", "collision")]
+y_sort_enabled = true
+script = ExtResource("1_wmb4y")
+sprite = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+
+[node name="Sombra" type="TextureRect" parent="."]
+y_sort_enabled = true
+offset_left = -12.0
+offset_top = 16.0
+offset_right = 12.0
+offset_bottom = 36.0
+texture = ExtResource("2_wmb4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 10)
+texture = ExtResource("3_nrxfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s0su4")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -34)
+shape = SubResource("CircleShape2D_ielp4")

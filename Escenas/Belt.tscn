@@ -170,7 +170,7 @@ _data = {
 &"open_belt": SubResource("Animation_du1tr")
 }
 
-[node name="Belt" type="Control" node_paths=PackedStringArray("animacion", "slot_label", "slot1_node", "slot2_node", "slot3_node", "slot4_node", "slot1_display", "slot2_display", "slot3_display", "slot4_display", "slot1_amount", "slot2_amount", "slot3_amount", "slot4_amount")]
+[node name="Belt" type="Control" node_paths=PackedStringArray("animacion", "slot_label", "slot1_node", "slot2_node", "slot3_node", "slot4_node", "slot1_display", "slot2_display", "slot3_display", "slot4_display", "slot1_amount", "slot2_amount", "slot3_amount", "slot4_amount") groups=["belt"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_80vs8")

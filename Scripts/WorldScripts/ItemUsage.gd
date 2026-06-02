@@ -21,7 +21,7 @@ func use_item(player: CharacterBody2D, item_name: String) -> void:
 			print("Material: ", item_name)
 		"story":
 			print("Item de historia: ", item_name)
-func consume_item(player: CharacterBody2D, item_name: String, attrs: Dictionary) -> void:
+func consume_item(player: CharacterBody2D, _item_name: String, attrs: Dictionary) -> void:
 	if attrs.has("health"):
 		var health_amount = attrs["health"]
 		player.heal(health_amount)
